@@ -16,11 +16,24 @@ struct node {
 	}
 };
 class linklist {
-private:
+protected:
 	node* start;
 public:
 	linklist() {
 		start = nullptr;
+	}
+	node* getstart(){
+		return start;
+	}
+	int size(){
+		int a=0;
+		node* tmp=start;
+		while(tmp!=nullptr)
+		{
+			++a;
+			tmp=tmp->ptr;
+		}
+		return a;
 	}
 	int insert(int d) {
 		node* m=new node(d);
@@ -124,13 +137,44 @@ public:
 	}
 	void print() {
 		node* tmp = start;
+		int a=1;
 		while (tmp != nullptr)
 		{
-			cout << tmp<<"  "<<tmp->data << endl;
+		    if(a==1)
+			cout<<endl<<tmp->data<<"  -> ";
+			else
+			cout <<" | "<<tmp->data;
 			tmp = tmp->ptr;
+			a++;
 		}
 		tmp = nullptr;
 	}
+	int getnelement(int n)
+		{
+			node* tmp=start;
+			for(int i=1;i<n && tmp->ptr!=nullptr;++i)
+			{
+				tmp=tmp->ptr;
+				}
+				return tmp->getvalue();	
+		}
+		bool delnelement(int n)
+		{
+			node* tmp=start;
+			node* tmp2=start;
+			if(n==1 && start!=nullptr)
+			{
+				start=start->ptr;
+				return true;
+			}
+			for(int i=1;i<n && tmp2!=nullptr;++i)
+			{
+				tmp=tmp2;
+				tmp2=tmp2->ptr;
+			}
+			tmp->ptr=tmp2->ptr;
+			return true;
+		}
 };
 //int main() {
 //	linklist l;
