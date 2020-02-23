@@ -1,4 +1,5 @@
 #include<iostream>
+#include"queue.cpp"
 using namespace std;
 class node{
 	private:
@@ -102,9 +103,23 @@ class tree{
 		cout << _root->getdata()<<"  ";    
 	  	}
 	}
+	void bft(){
+	queue <node*>q;
+	q.enque(root);
+	node* temp;
+	while(!q.isEmpty())
+	{
+		q.deque(temp);
+		cout<<temp->getdata()<<endl;
+		if(temp->leftchild!=nullptr)
+			q.enque(temp->leftchild);
+		if(temp->rightchild!=nullptr)
+			q.enque(temp->rightchild);
+	}
+}
 	void displaytree()
 		{
-			preorder(root);
+			bft();
 		}
 	node* findMin(node* root1)
 	{
@@ -143,6 +158,7 @@ class tree{
 	return root1;
 }
 };
+
 int main(){
 	tree vtree;
 	vtree.insertnode(34);					
@@ -159,9 +175,14 @@ int main(){
        /  \    /   \
       23  27  35   46
 */
-	vtree.displaytree();
-	vtree.deletenode(vtree.getroot(),36);
-	vtree.displaytree();
+//    vtree.preorder(vtree.getroot());
+//    cout<<"\n";
+//    vtree.inorder(vtree.getroot());
+//    cout<<"\n";
+//    vtree.postorder(vtree.getroot());
+//	vtree.deletenode(vtree.getroot(),36);
+//	vtree.displaytree();
+	vtree.bft();
 }
 
 

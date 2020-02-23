@@ -74,7 +74,7 @@ void printque()
 	}
 }
 };
-int main(){
+int maain(){
 	int size=10;
    queue <int>qa(size);
    qa.enque(7);

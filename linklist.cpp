@@ -176,19 +176,19 @@ public:
 			return true;
 		}
 };
-//int main() {
-//	linklist l;
-//	l.insert(10);
-//	l.insert(30);
-//	l.insert(25);
-//	l.insert(15);
-//	l.insert(5);
-//	l.insert(20);
-//	l.print();
-//	cout<<"\n\n\n";
-//	l.sort();
-//	l.print();
-//	cout<<"\n\n\n";
-//	l.searchanddel(25);
-//	l.print();
-//}
+int main() {
+	linklist l;
+	l.insert(10);
+	l.insert(30);
+	l.insert(25);
+	l.insert(15);
+	l.insert(5);
+	l.insert(20);
+	l.print();
+	cout<<"\n\n\n";
+	l.sort();
+	l.print();
+	cout<<"\n\n\n";
+	l.searchanddel(25);
+	l.print();
+}
